@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_toy/model/model_movie.dart';
 
 class HomeSceen extends StatefulWidget {
   _HomeSceenState createState() => _HomeSceenState();
 }
 
 class _HomeSceenState extends State<HomeSceen> {
+  List<Movie> movies = [
+    Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로맨스/판타지',
+      'poster': 'test_movie_1.png',
+      'like': false
+    })
+  ];
+
   @override
   Widget build(BuildContext context) {
     return TopBar();
