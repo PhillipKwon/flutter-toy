@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_toy/model/model_movie.dart';
+import 'package:flutter_toy/widget/box_slider.dart';
 import 'package:flutter_toy/widget/carousel_slider.dart';
+import 'package:flutter_toy/widget/circle_slider.dart';
 
 class HomeSceen extends StatefulWidget {
   _HomeSceenState createState() => _HomeSceenState();
@@ -48,7 +50,9 @@ class _HomeSceenState extends State<HomeSceen> {
             CarouselImage(movies: movies),
             TopBar(),
           ],
-        )
+        ),
+        CircleSlider(movies: movies),
+        BoxSlider(movies: movies)
       ],
     );
   }
