@@ -24,11 +24,26 @@ class _CarouselImageState extends State<CarouselImage> {
   void initState() {
     super.initState();
     movies = widget.movies;
-    images = movies.map((m) => Image.asset('./images/${m.poster}')).toList();
+    images = movies.map((m) => Image.network(m.poster)).toList();
     keywords = movies.map((m) => m.keyword).toList();
     likes = movies.map((m) => m.like).toList();
 
     _currentKeyword = keywords[0];
+  }
+
+  @override
+  void didUpdateWidget(CarouselImage oldWidget) {
+    if (widget.movies != oldWidget.movies) {
+      setState(() {
+        movies = widget.movies;
+        images = movies.map((m) => Image.network(m.poster)).toList();
+        keywords = movies.map((m) => m.keyword).toList();
+        likes = movies.map((m) => m.like).toList();
+
+        _currentKeyword = keywords.isNotEmpty ? keywords[0] : "";
+      });
+    }
+    super.didUpdateWidget(oldWidget);
   }
 
   @override
@@ -66,8 +81,45 @@ class _CarouselImageState extends State<CarouselImage> {
                     children: <Widget>[
                       likes[_currentPage]
                           ? IconButton(
-                              onPressed: () {}, icon: Icon(Icons.check))
-                          : IconButton(onPressed: () {}, icon: Icon(Icons.add)),
+                              onPressed: () {
+                                setState(() {
+                                  likes[_currentPage] = !likes[_currentPage];
+                                  // 업데이트할 필드와 값을 담은 맵
+                                  Map<String, dynamic> updatedData = {
+                                    'like': likes[_currentPage],
+                                  };
+
+                                  movies[_currentPage]
+                                      .reference
+                                      .update(updatedData)
+                                      .then((value) => print(
+                                          "DocumentSnapshot successfully updated!"))
+                                      .catchError((error) => print(
+                                          "Failed to update DocumentSnapshot: $error"));
+                                });
+                              },
+                              icon: Icon(Icons.check),
+                            )
+                          : IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  likes[_currentPage] = !likes[_currentPage];
+                                  // 업데이트할 필드와 값을 담은 맵
+                                  Map<String, dynamic> updatedData = {
+                                    'like': likes[_currentPage],
+                                  };
+
+                                  movies[_currentPage]
+                                      .reference
+                                      .update(updatedData)
+                                      .then((value) => print(
+                                          "DocumentSnapshot successfully updated!"))
+                                      .catchError((error) => print(
+                                          "Failed to update DocumentSnapshot: $error"));
+                                });
+                              },
+                              icon: Icon(Icons.add),
+                            ),
                       Text(
                         '내가 찜한 콘텐츠',
                         style: TextStyle(fontSize: 11),
