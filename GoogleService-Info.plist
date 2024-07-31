@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyA9-4nYx_XvjmNXpTg0EdkXRhSquo9ks0U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>663330353956</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flutterToy</string>
+	<key>PROJECT_ID</key>
+	<string>netflix-clone-test-49258</string>
+	<key>STORAGE_BUCKET</key>
+	<string>netflix-clone-test-49258.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:663330353956:ios:45c84ff88d02dcbb1479b1</string>
+</dict>
+</plist>
