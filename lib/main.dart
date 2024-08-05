@@ -4,6 +4,7 @@ import 'package:flutter_toy/screen/home_screen.dart';
 import 'package:flutter_toy/screen/more_screen.dart';
 import 'package:flutter_toy/screen/search_screen.dart';
 import 'package:flutter_toy/widget/bottom_bar.dart';
+import 'package:flutter_toy/widget/like_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +33,7 @@ class _MyAppState extends State<MyApp> {
             children: [
               HomeSceen(),
               SearchScreen(),
-              Container(child: Center(child: Text("save"))),
+              LikeScreen(),
               MoreScreen(),
             ],
           ),
